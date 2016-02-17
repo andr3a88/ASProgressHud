@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'ASProgressHud_Example', :exclusive => true do
+  pod 'ASProgressHud', :path => '../'
+end
+
+target 'ASProgressHud_Tests', :exclusive => true do
+  pod 'ASProgressHud', :path => '../'
+
+  
+end
