@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ASProgressHud: 891acf0732e661d3891ca430deeb0af17456959f
+  ASProgressHud: 9cd9cf120cbe561cd8ca533cb09b43906306cb85
 
 COCOAPODS: 0.39.0

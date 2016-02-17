@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "ASProgressHud"
   s.version          = "0.1.0"
-  s.summary          = "A short description of ASProgressHud."
+  s.summary          = "A custom loading view inspired by MBProgressHud"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+                            A custom loading view inspired by MBProgressHud using images 
                        DESC
 
   s.homepage         = "https://github.com/andr3a88/ASProgressHud"
@@ -24,14 +25,14 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "Andrea" => "runner_corsa@msn.com" }
   s.source           = { :git => "https://github.com/andr3a88/ASProgressHud.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/andrea_steva'
+  s.social_media_url = 'https://twitter.com/andrea_steva'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'ASProgressHud' => ['Pod/Assets/*.png']
+  s.resource_bundle = {
+    'Resources' => ['Pod/Assets/**/*.png'] # the ** will recursively check all subfolders of the Assets directory
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
