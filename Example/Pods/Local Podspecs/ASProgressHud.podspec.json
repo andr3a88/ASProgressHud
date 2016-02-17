@@ -1,0 +1,25 @@
+{
+  "name": "ASProgressHud",
+  "version": "0.1.0",
+  "summary": "A short description of ASProgressHud.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/ASProgressHud",
+  "license": "MIT",
+  "authors": {
+    "Andrea": "runner_corsa@msn.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/ASProgressHud.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "ASProgressHud": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

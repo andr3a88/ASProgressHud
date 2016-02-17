@@ -1,0 +1,14 @@
+PODS:
+  - ASProgressHud (0.1.0)
+
+DEPENDENCIES:
+  - ASProgressHud (from `../`)
+
+EXTERNAL SOURCES:
+  ASProgressHud:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ASProgressHud: 891acf0732e661d3891ca430deeb0af17456959f
+
+COCOAPODS: 0.39.0

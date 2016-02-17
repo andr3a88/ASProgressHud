@@ -1,0 +1,6 @@
+framework module Pods_ASProgressHud_Tests {
+  umbrella header "Pods-ASProgressHud_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
