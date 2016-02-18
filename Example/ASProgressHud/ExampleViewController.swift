@@ -47,8 +47,8 @@ class ExampleViewController: UIViewController {
     
     @IBAction func showCustomHUD() {
         
-        let hudProperty = HudProperty(prefixName: "loader_custom", frameNumber: 18, backgroundColor: UIColor.clearColor())
-        ASProgressHud.showCustomHUDAddedTo(self.view, animated: true, hudProperty: hudProperty)
+        let property = HudProperty(prefixName: "coffee", frameNumber: 13, backgroundColor: UIColor.yellowColor())
+        ASProgressHud.showCustomHUDAddedTo(self.view, animated: true, hudProperty: property)
         print("Hud SHOW")
         
         self.hideAfterDelay()

@@ -6,42 +6,54 @@
 //
 //
 
-import UIKit
-
+/**
+*  Describe the property for the Hud
+*/
 public struct HudProperty {
-    var prefixName: String
-    var frameNumber: Int
-    var backgroundColor: UIColor
     
-    public init(prefixName : String, frameNumber : Int, backgroundColor : UIColor){
+    /// The images predix name (eg. For a image with format "my_loader_XX.png" with NN from 0 to 20 the predix name is "my:loader")
+    let prefixName: String
+    /// The number of images used to animate the loader
+    let frameNumber: Int
+    /// The size for the loader. Defaut value 60 px
+    let size: CGFloat
+    /// The animation duration for a single cycles. Default value 1.0 second
+    let animationDuration: NSTimeInterval
+    /// An optional background color. The defuault value is clear color
+    let backgroundColor: UIColor?
+    
+    private var mainBundle : Bool = false
+    
+    public init(prefixName : String, frameNumber : Int, size : CGFloat = 60, animationDuration : NSTimeInterval = 1.0, backgroundColor : UIColor? = UIColor.clearColor()) {
         self.prefixName = prefixName
         self.frameNumber = frameNumber
+        self.size = size
+        self.animationDuration = animationDuration
         self.backgroundColor = backgroundColor
-        
     }
 }
 
+/// A set of custom Hud
 public enum HudType : Int {
     case Default, Flag, Google
     
     var properties : HudProperty {
         switch self {
         case .Default:
-            return HudProperty(prefixName: "loader_custom", frameNumber: 18, backgroundColor: UIColor.clearColor())
+            return HudProperty(prefixName: "default", frameNumber: 18)
         case .Flag:
-            return HudProperty(prefixName: "loader_flag", frameNumber: 20, backgroundColor: UIColor.clearColor())
+            return HudProperty(prefixName: "flag", frameNumber: 20)
         case .Google:
-            return HudProperty(prefixName: "loader_google", frameNumber: 30, backgroundColor: UIColor.clearColor())
+            return HudProperty(prefixName: "google", frameNumber: 30)
         }
     }
 }
 
 /**
- *  ASProgressHud is UIView subclass plus UIImageView on the center.
+ *  ASProgressHud is UIView subclass
  */
 public class ASProgressHud: UIView {
     
-    private static let LoaderSize : CGFloat = 65 //Depending on screen size: UIScreen.mainScreen().nativeBounds.width * 0.12
     private var useAnimation = true
     private var showStarted : NSDate?
     private var hudImageView : UIImageView?
@@ -95,13 +107,13 @@ public class ASProgressHud: UIView {
         self.autoresizingMask = [.FlexibleTopMargin, .FlexibleBottomMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
         
         //Configure HudImageView
-        self.hudImageView = UIImageView(frame:CGRectMake(0, 0, ASProgressHud.LoaderSize, ASProgressHud.LoaderSize))
+        self.hudImageView = UIImageView(frame:CGRectMake(0, 0, hudProperty.size, hudProperty.size))
         self.hudImageView?.center = CGPointMake(frame.size.width/2, frame.size.height/2)
         self.hudImageView?.contentMode = UIViewContentMode.ScaleAspectFit
         self.hudImageView?.backgroundColor = hudProperty.backgroundColor
         
         //Load images
-        let imagesArray = self.getImagesArray(hudProperty.prefixName, imagesNumber: hudProperty.frameNumber)
+        let imagesArray = self.loadImages(hudProperty)
         
         //Animation configuration
         self.hudImageView?.animationImages = imagesArray
@@ -112,11 +124,10 @@ public class ASProgressHud: UIView {
     }
     
     private func customTypeBasedConfiguration(type: HudType) {
-        //Type-based property configuration
         switch type {
         case .Default:
             
-            //Add Shadow
+            //Add a black shadow with radius offset and opacity
             self.hudImageView?.layer.shadowColor = UIColor.blackColor().CGColor
             self.hudImageView?.layer.shadowOpacity = 0.4
             self.hudImageView?.layer.shadowRadius = 3.0
@@ -130,13 +141,17 @@ public class ASProgressHud: UIView {
     
     //MARK: - Utils
     
-    private func getImagesArray(prefixImageName : String, imagesNumber : Int) -> Array<UIImage> {
+    private func loadImages(property : HudProperty) -> Array<UIImage> {
+
         //Load images
         var imageArray : [UIImage] = []
         
-        for var c = 0; c < imagesNumber; c++ {
-            let image = UIImage(named: String(format: "%@_%02d.png", prefixImageName, c), inBundle: self.podBundle(), compatibleWithTraitCollection: nil)
-            imageArray.append(image!)
+        for var c = 0; c < property.frameNumber; c++ {
+            guard let image = UIImage(named: String(format: "%@_%02d.png", property.prefixName, c), inBundle: property.mainBundle ? nil : self.podBundle(), compatibleWithTraitCollection: nil) else {
+                assertionFailure("Cannot load the image")
+                return []
+            }
+            imageArray.append(image)
         }
         
         return imageArray
@@ -152,7 +167,6 @@ public class ASProgressHud: UIView {
             } else {
                 assertionFailure("Could not load the bundle")
             }
-            
         } else {
             assertionFailure("Could not create a path to the bundle")
         }
@@ -196,7 +210,8 @@ public class ASProgressHud: UIView {
      :see: hideHUDForView:animated:
      :see: animationType
      */
-    public static func showCustomHUDAddedTo(view : UIView, animated : Bool, hudProperty : HudProperty) -> ASProgressHud {
+    public static func showCustomHUDAddedTo(view : UIView, animated : Bool, var hudProperty : HudProperty) -> ASProgressHud {
+        hudProperty.mainBundle = true
         let hud = ASProgressHud(frame: view.bounds, hudProperty: hudProperty)
         view.addSubview(hud)
         hud.show(animated)
