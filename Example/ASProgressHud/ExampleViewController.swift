@@ -15,11 +15,6 @@ class ExampleViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
-    }
     
     @IBAction func showWhiteHUD() {
         
@@ -47,7 +42,7 @@ class ExampleViewController: UIViewController {
     
     @IBAction func showCustomHUD() {
         
-        let property = HudProperty(prefixName: "coffee", frameNumber: 13, backgroundColor: UIColor.yellowColor())
+        let property = HudProperty(prefixName: "coffee", frameNumber: 13, size: 70, backgroundColor: UIColor.yellowColor())
         ASProgressHud.showCustomHUDAddedTo(self.view, animated: true, hudProperty: property)
         print("Hud SHOW")
         
@@ -62,8 +57,6 @@ class ExampleViewController: UIViewController {
             ASProgressHud.hideHUDForView(self.view, animated: true)
             print("Hud HIDE")
         }
-        
     }
-    
     
 }

@@ -7,12 +7,12 @@
 //
 
 /**
-*  Describe the property for the Hud
+*  Specify the property for the Hud.
 */
 public struct HudProperty {
     
     /// The images predix name (eg. For a image with format "my_loader_XX.png" with NN from 0 to 20 the predix name is "my:loader")
-    let prefixName: String
+    public let prefixName: String
     /// The number of images used to animate the loader
     let frameNumber: Int
     /// The size for the loader. Defaut value 60 px
@@ -24,6 +24,17 @@ public struct HudProperty {
     
     private var mainBundle : Bool = false
     
+    /**
+     Specify the property for the Hud
+     
+     - parameter prefixName:        The images predix name (eg. For a image with format "my_loader_XX.png" with NN from 0 to 20 the predix name is "my:loader")
+     - parameter frameNumber:       The number of images used to animate the loader
+     - parameter size:              The size for the loader. Defaut value 60 px
+     - parameter animationDuration: The animation duration for a single cycles. Default value 1.0 second
+     - parameter backgroundColor:   An optional background color. The defuault value is clear color
+     
+     - returns: The property struct
+     */
     public init(prefixName : String, frameNumber : Int, size : CGFloat = 60, animationDuration : NSTimeInterval = 1.0, backgroundColor : UIColor? = UIColor.clearColor()) {
         self.prefixName = prefixName
         self.frameNumber = frameNumber
@@ -317,7 +328,6 @@ public class ASProgressHud: UIView {
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationDuration(0.30)
             UIView.setAnimationDelegate(self)
-            // default = NULL. -animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
             UIView.setAnimationDidStopSelector("animationFinished")
             // 0.02 prevents the hud from passing through touches during the animation the hud will get completely hidden
             // in the done method
