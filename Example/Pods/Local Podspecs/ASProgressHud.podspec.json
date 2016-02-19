@@ -1,8 +1,8 @@
 {
   "name": "ASProgressHud",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "summary": "A custom loading view inspired by MBProgressHud",
-  "description": "A custom loading view inspired by MBProgressHud using images",
+  "description": "A custom loading view inspired by MBProgressHud.",
   "homepage": "https://github.com/andr3a88/ASProgressHud",
   "license": "MIT",
   "authors": {
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/andr3a88/ASProgressHud.git",
-    "tag": "0.1.0"
+    "tag": "0.0.1"
   },
   "social_media_url": "https://twitter.com/andrea_steva",
   "platforms": {
