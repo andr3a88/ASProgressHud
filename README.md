@@ -25,7 +25,7 @@ pod "ASProgressHud"
 ```
 
 # ASProgressHudExample 
-#### Version 1.0 - 01-01-2016 - Andrea Stevanato 
+#### Version 0.0.2 - 01-01-2016 - Andrea Stevanato 
 
 
 ##DESCRIPTION
@@ -50,7 +50,7 @@ ASProgressHud (Swift Version): displays a customized loading view. The loader is
 
 ## Author
 
-Andrea, @andrea_steva
+Andrea, Twitter @andrea_steva
 
 ## License
 
