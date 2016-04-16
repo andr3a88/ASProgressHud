@@ -157,7 +157,7 @@ public class ASProgressHud: UIView {
         //Load images
         var imageArray : [UIImage] = []
         
-        for var c = 0; c < property.frameNumber; c++ {
+        for c in 0 ..< property.frameNumber {
             guard let image = UIImage(named: String(format: "%@_%02d.png", property.prefixName, c), inBundle: property.mainBundle ? nil : self.podBundle(), compatibleWithTraitCollection: nil) else {
                 assertionFailure("Cannot load the image")
                 return []
@@ -221,7 +221,8 @@ public class ASProgressHud: UIView {
      :see: hideHUDForView:animated:
      :see: animationType
      */
-    public static func showCustomHUDAddedTo(view : UIView, animated : Bool, var hudProperty : HudProperty) -> ASProgressHud {
+    public static func showCustomHUDAddedTo(view : UIView, animated : Bool, property : HudProperty) -> ASProgressHud {
+        var hudProperty = property
         hudProperty.mainBundle = true
         let hud = ASProgressHud(frame: view.bounds, hudProperty: hudProperty)
         view.addSubview(hud)
@@ -328,7 +329,7 @@ public class ASProgressHud: UIView {
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationDuration(0.30)
             UIView.setAnimationDelegate(self)
-            UIView.setAnimationDidStopSelector("animationFinished")
+            UIView.setAnimationDidStopSelector(#selector(ASProgressHud.animationFinished))
             // 0.02 prevents the hud from passing through touches during the animation the hud will get completely hidden
             // in the done method
             self.alpha = 0.02
