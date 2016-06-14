@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ExampleViewController.swift
 //  ASProgressHud
 //
 //  Created by Andrea on 02/17/2016.
@@ -18,7 +18,7 @@ class ExampleViewController: UIViewController {
     
     @IBAction func showWhiteHUD() {
         
-        ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .Default)
+        _ = ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .default)
         print("Hud SHOW")
         
         self.hideAfterDelay()
@@ -26,7 +26,7 @@ class ExampleViewController: UIViewController {
     
     @IBAction func showGoogleHUD() {
         
-        ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .Google)
+        _ = ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .google)
         print("Hud SHOW")
         
         self.hideAfterDelay()
@@ -34,7 +34,7 @@ class ExampleViewController: UIViewController {
     
     @IBAction func showFlagHUD() {
         
-        ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .Flag)
+        _ = ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .flag)
         print("Hud SHOW")
         
         self.hideAfterDelay()
@@ -42,8 +42,8 @@ class ExampleViewController: UIViewController {
     
     @IBAction func showCustomHUD() {
         
-        let property = HudProperty(prefixName: "coffee", frameNumber: 13, size: 70, backgroundColor: UIColor.yellowColor())
-        ASProgressHud.showCustomHUDAddedTo(self.view, animated: true, property: property)
+        let property = HudProperty(prefixName: "coffee", frameNumber: 13, size: 70, backgroundColor: UIColor.yellow())
+        _ = ASProgressHud.showCustomHUDAddedTo(self.view, animated: true, property: property)
         print("Hud SHOW")
         
         self.hideAfterDelay()
@@ -51,10 +51,9 @@ class ExampleViewController: UIViewController {
     
     func hideAfterDelay() {
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
-            
-            ASProgressHud.hideHUDForView(self.view, animated: true)
+        let delayTime = DispatchTime.now() + 3.0
+        DispatchQueue.main.after(when: delayTime) {
+            _ = ASProgressHud.hideHUDForView(self.view, animated: true)
             print("Hud HIDE")
         }
     }
