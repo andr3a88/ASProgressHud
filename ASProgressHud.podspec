@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.resource_bundle = {
     'Resources' => ['Pod/Assets/**/*.png'] # the ** will recursively check all subfolders of the Assets directory
   }
+
 end
