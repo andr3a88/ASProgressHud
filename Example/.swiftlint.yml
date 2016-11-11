@@ -1,0 +1,34 @@
+disabled_rules: # rule identifiers to exclude from running
+  - colon
+  - comma
+  - control_statement
+  - force_cast
+  - legacy_constant
+  - legacy_constructor
+  - line_length
+  - nesting
+  - todo
+  - trailing_whitespace
+  - type_name
+  - variable_name
+  - missing_docs
+
+opt_in_rules: # some rules are only opt-in
+  #- empty_count
+  #- missing_docs
+  # Find all the available rules by running:
+  # swiftlint rules
+
+included: # paths to include during linting. `--path` is ignored if present.
+  - ../Pod
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+
+# These properties are marked as error by default.
+force_try: warning
+
+file_length:
+  warning: 500
+  error: 1200
