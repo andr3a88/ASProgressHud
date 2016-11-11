@@ -200,6 +200,7 @@ open class ASProgressHud: UIView {
     :see: hideHUDForView:animated:
     :see: animationType
     */
+    @discardableResult
     open static func showHUDAddedTo(_ view : UIView, animated : Bool, type : HudType) -> ASProgressHud {
         let hud = ASProgressHud(frame: view.bounds, type: type)
         view.addSubview(hud)
@@ -221,6 +222,7 @@ open class ASProgressHud: UIView {
      :see: hideHUDForView:animated:
      :see: animationType
      */
+    @discardableResult
     open static func showCustomHUDAddedTo(_ view : UIView, animated : Bool, property : HudProperty) -> ASProgressHud {
         var hudProperty = property
         hudProperty.mainBundle = true
@@ -243,6 +245,7 @@ open class ASProgressHud: UIView {
      :see: showHUDAddedTo:animated:
      :see: animationType
      */
+    @discardableResult
     open static func hideHUDForView(_ view : UIView, animated : Bool) -> Bool {
         let hud = self.HUDForView(view)
         
