@@ -11,8 +11,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-* Swift 2.0
-* XCode 7.0
+* Swift 3.0
+* XCode 8.0
 * iOS >= 8
 
 ## Installation
@@ -24,24 +24,39 @@ it, simply add the following line to your Podfile:
 pod "ASProgressHud"
 ```
 
-# ASProgressHudExample 
-#### Version 0.0.2 - 01-01-2016 - Andrea Stevanato 
+# ASProgressHud
+#### Version 1.0.1 - 12-11-2016 - Andrea Stevanato 
 
 
 ##DESCRIPTION
-ASProgressHud (Swift Version): displays a customized loading view. The loader is created with an UIImageView animated by png images
+ASProgressHud displays a customized loading view. The loader is created with an UIImageView animated with png images.
 
 ##HOW TO USE
-* Import ASProgressHud
-* **Default Hud**
-* Choose a ```HudType```
-* Create the Hud:  ```ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .Default)```
-* **Custom Hud**
-* Import loader images in png format, with name like loader\_custom\_00.png, loader\_custom\_01.png, etc...
-* Create HudProperty: ```HudProperty(prefixName: "loader_custom", frameNumber: 18)```
-* Create Hud:  ```ASProgressHud.showCustomHUDAddedTo(self.view, animated: true, hudProperty: hudProperty)```
-* **Hide Hud**: ```ASProgressHud.hideHUDForView(self.view, animated: true)```
 
+#### Default HUD
+
+```swift
+// Show
+ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .default)
+
+// Hide
+ASProgressHud.hideHUDForView(self.view, animated: true)
+```
+
+#### Custom HUD
+
+```swift
+// Import loader images in png format, with name like loader\_custom\_00.png, loader\_custom\_01.png, etc...
+
+// Create HudProperty
+HudProperty(prefixName: "loader_custom", frameNumber: 18)
+
+// Show
+ASProgressHud.showCustomHUDAddedTo(self.view, animated: true, hudProperty: hudProperty)
+
+// Hide
+ASProgressHud.hideHUDForView(self.view, animated: true)
+```
 
 ## RESOURCES
 
