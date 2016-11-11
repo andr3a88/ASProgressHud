@@ -5,10 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/ASProgressHud.svg?style=flat)](http://cocoapods.org/pods/ASProgressHud)
 [![Platform](https://img.shields.io/cocoapods/p/ASProgressHud.svg?style=flat)](http://cocoapods.org/pods/ASProgressHud)
 
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Requirements
 
 * Swift 3.0
@@ -24,14 +20,16 @@ it, simply add the following line to your Podfile:
 pod "ASProgressHud"
 ```
 
-# ASProgressHud
-#### Version 1.0.1 - 12-11-2016 - Andrea Stevanato 
+## Changelog
+See the [changelog](CHANGELOG.md) file. 
 
 
-##DESCRIPTION
+## Description
 ASProgressHud displays a customized loading view. The loader is created with an UIImageView animated with png images.
 
-##HOW TO USE
+## Usage
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 #### Default HUD
 
@@ -58,7 +56,7 @@ ASProgressHud.showCustomHUDAddedTo(self.view, animated: true, hudProperty: hudPr
 ASProgressHud.hideHUDForView(self.view, animated: true)
 ```
 
-## RESOURCES
+## Resources
 
 * [Preloaders.net](http://preloaders.net/)
 * [Gif and aPng splitter](http://animizer.net/en/gif-apng-splitter)
