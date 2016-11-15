@@ -27,6 +27,8 @@ See the [changelog](CHANGELOG.md) file.
 ## Description
 ASProgressHud displays a customized loading view. The loader is created with an UIImageView animated with png images.
 
+![Screenshot](preview.gif)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
