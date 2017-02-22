@@ -42,7 +42,7 @@ class ExampleViewController: UIViewController {
     
     @IBAction func showCustomHUD() {
         
-        let property = HudProperty(prefixName: "coffee", frameNumber: 13, size: 70, backgroundColor: UIColor.yellow)
+        let property = HudProperty(prefixName: "coffee", frameNumber: 13, size: 70, animationDuration: 0.2, backgroundColor: UIColor.yellow)
         ASProgressHud.showCustomHUDAddedTo(self.view, animated: true, property: property)
         print("Hud SHOW")
         

@@ -1,8 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+### [1.0.3](https://github.com/andr3a88/ASProgressHud/tree/1.0.3)
+
+Fix issue on animation duration.
+
+### [1.0.2](https://github.com/andr3a88/ASProgressHud/tree/1.0.2)
+
+Updated README and minor issue.
 
 ### [1.0.1](https://github.com/andr3a88/ASProgressHud/tree/1.0.1)
+
 Updated README and minor issue.
 
 ### [1.0.0](https://github.com/andr3a88/ASProgressHud/tree/1.0.0)

@@ -70,7 +70,7 @@ open class ASProgressHud: UIView {
     fileprivate var hudImageView : UIImageView?
     var removeFromSuperViewOnHide : Bool? = false
     
-    //MARK: - Init
+    // MARK: - Init
     
     public required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -128,7 +128,7 @@ open class ASProgressHud: UIView {
         
         //Animation configuration
         self.hudImageView?.animationImages = imagesArray
-        self.hudImageView?.animationDuration = 1.0
+        self.hudImageView?.animationDuration = hudProperty.animationDuration
         self.hudImageView?.animationRepeatCount = 0
         self.hudImageView?.clipsToBounds = true
         self.hudImageView?.layer.cornerRadius = 10.0
@@ -150,9 +150,9 @@ open class ASProgressHud: UIView {
         }
     }
     
-    //MARK: - Utils
+    // MARK: - Utils
     
-    fileprivate func loadImages(_ property : HudProperty) -> Array<UIImage> {
+    fileprivate func loadImages(_ property : HudProperty) -> [UIImage] {
 
         //Load images
         var imageArray : [UIImage] = []
@@ -184,7 +184,7 @@ open class ASProgressHud: UIView {
         return podBundle
     }
     
-    //MARK: - Class methods
+    // MARK: - Class methods
     
     /**
     Creates a new HUD, adds it to provided view and shows it. The counterpart to this method is hideHUDForView:animated:.
@@ -291,7 +291,7 @@ open class ASProgressHud: UIView {
         return nil
     }
     
-    fileprivate static func allHUDsForView(_ view : UIView) -> Array<ASProgressHud> {
+    fileprivate static func allHUDsForView(_ view : UIView) -> [ASProgressHud] {
         
         var huds : [ASProgressHud]? = []
         let subviews = view.subviews as Array
@@ -303,7 +303,7 @@ open class ASProgressHud: UIView {
         return huds!
     }
     
-    //MARK: - Show & hide
+    // MARK: - Show & hide
     
     fileprivate func showUsingAnimation(_ animated : Bool) {
         // Cancel any scheduled hideDelayed: calls
@@ -355,7 +355,7 @@ open class ASProgressHud: UIView {
         self.hideUsingAnimation(useAnimation)
     }
     
-    //MARK: - Internal show & hide operations
+    // MARK: - Internal show & hide operations
     
     func animationFinished() {
         self.done()

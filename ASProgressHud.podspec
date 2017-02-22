@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ASProgressHud"
-  s.version          = "1.0.2"
+  s.version          = "1.0.3"
   s.summary          = "A custom loading view inspired by MBProgressHud" 
   s.description      = <<-DESC
                             A custom loading view inspired by MBProgressHud.
