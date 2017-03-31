@@ -1,28 +1,48 @@
 import UIKit
 import XCTest
+@testable import ASProgressHud
 
 class Tests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testHudPropertyInitializer() {
+        
+        var property = HudProperty(prefixName: "_prefix", frameNumber: 30)
+        
+        XCTAssertEqual(property.frameNumber, 30)
+        XCTAssertEqual(property.prefixName, "_prefix")
+        
+        property = HudProperty(prefixName: "image_", frameNumber: 40, size: 10.0, animationDuration: 1.0, backgroundColor: UIColor.red)
+        
+        XCTAssertEqual(property.frameNumber, 40)
+        XCTAssertEqual(property.prefixName, "image_")
+        XCTAssertEqual(property.size, 10.0)
+        XCTAssertEqual(property.backgroundColor, UIColor.red)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testHudType() {
+        
+        var type = HudType.default
+        XCTAssertEqual(type.properties.prefixName, "default")
+        XCTAssertEqual(type.properties.frameNumber, 18)
+        
+        type = HudType.flag
+        XCTAssertEqual(type.properties.prefixName, "flag")
+        XCTAssertEqual(type.properties.frameNumber, 20)
+        
+        type = HudType.google
+        XCTAssertEqual(type.properties.prefixName, "google")
+        XCTAssertEqual(type.properties.frameNumber, 30)
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testProgressHudInitializer() {
+        
+        let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        let property = HudProperty(prefixName: "google", frameNumber: 30)
+        
+        var hud = ASProgressHud(frame: frame, type: HudType.default)
+        XCTAssertEqual(hud.frame, frame)
+        
+        hud = ASProgressHud(frame: frame, hudProperty: property)
+        XCTAssertEqual(hud.frame, frame)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

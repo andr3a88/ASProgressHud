@@ -18,7 +18,7 @@ class ExampleViewController: UIViewController {
     
     @IBAction func showWhiteHUD() {
         
-        _ = ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .default)
+        ASProgressHud.showHUDAddedTo(self.view, animated: true, type: .default)
         print("Hud SHOW")
         
         self.hideAfterDelay()
