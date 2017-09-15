@@ -357,7 +357,7 @@ open class ASProgressHud: UIView {
     
     // MARK: - Internal show & hide operations
     
-    func animationFinished() {
+    @objc func animationFinished() {
         self.done()
     }
     
