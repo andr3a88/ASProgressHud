@@ -1,9 +1,10 @@
 # ASProgressHud
-
-[![CI Status](http://img.shields.io/travis/Andrea/ASProgressHud.svg?style=flat)](https://travis-ci.org/Andrea/ASProgressHud)
+![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?maxAge=3600)
+[![Platform](https://img.shields.io/cocoapods/p/ASProgressHud.svg?style=flat)](http://cocoapods.org/pods/ASProgressHud)
 [![Version](https://img.shields.io/cocoapods/v/ASProgressHud.svg?style=flat)](http://cocoapods.org/pods/ASProgressHud)
 [![License](https://img.shields.io/cocoapods/l/ASProgressHud.svg?style=flat)](http://cocoapods.org/pods/ASProgressHud)
-[![Platform](https://img.shields.io/cocoapods/p/ASProgressHud.svg?style=flat)](http://cocoapods.org/pods/ASProgressHud)
+[![Apps](https://img.shields.io/cocoapods/at/ASProgressHud.svg?style=flat)](http://cocoapods.org/pods/ASProgressHud)
+[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=58c125ce8fe03c010009b1a5&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/56f4f461ae27cb01000b366d/build/latest?branch=master)
 
 ## Requirements
 
