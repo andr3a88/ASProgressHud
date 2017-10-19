@@ -1,33 +1,86 @@
-disabled_rules: # rule identifiers to exclude from running
-  - colon
-  - comma
-  - control_statement
-  - force_cast
-  - legacy_constant
-  - legacy_constructor
-  - line_length
-  - nesting
-  - todo
-  - trailing_whitespace
-  - type_name
-  - variable_name
-  - missing_docs
+disabled_rules:
+- conditional_binding_cascade
+- force_cast
+- legacy_constant
+- legacy_constructor
+- line_length
+- nesting
+- todo
+- trailing_whitespace
+- type_name
+- variable_name
+- cyclomatic_complexity
+- unused_closure_parameter
+- force_https
 
 opt_in_rules: # some rules are only opt-in
-  #- empty_count
-  #- missing_docs
-  # Find all the available rules by running:
-  # swiftlint rules
+#- empty_count
+#- missing_docs
+# Find all the available rules by running:
+# swiftlint rules
 
 included: # paths to include during linting. `--path` is ignored if present.
-  - ../Pod/Classes
+- ../Pod/Classes
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
-  - Carthage
+- Carthage
 
-# These properties are marked as error by default.
 force_try: warning
 
 file_length:
-  warning: 500
-  error: 1200
+    warning: 500
+    error: 700
+
+function_body_length:
+    warning: 150
+    error: 200
+
+type_body_length:
+    warning: 300
+    error: 350
+
+function_parameter_count:
+    warning: 10
+    error: 15
+
+line_length:
+    warning: 100
+    error: 120
+
+large_tuple:
+    warning: 4
+    error: 5
+
+custom_rules:
+    comments_space: # From https://github.com/brandenr/swiftlintconfig
+        name: "Space After Comment"
+        regex: "(^ *//\\w+)"
+        message: "There should be a space after //"
+        severity: warning
+
+    double_space: # From https://github.com/IBM-Swift/Package-Builder
+        include: "*.swift"
+        name: "Double space"
+        regex: "([a-z,A-Z] \\s+)"
+        message: "Double space between keywords"
+        match_kinds: keyword
+        severity: warning
+
+    mark_newline:
+        include: "*.swift"
+        name: "MARK new line"
+        regex: "(^ *\\/\\/ MARK:\ [ a-zA-Z0-9=?.\\(\\)\\{\\}:,><!-]*\n *(?!(?:\\}|return))\\S+)"
+        message: "// MARK: should have new line after"
+        severity: warning
+
+    empty_line_after_super:
+        name: "Empty Line After Super"
+        regex: "(^ *super\\.[ a-zA-Z0-9=?.\\(\\)\\{\\}:,><!]*\n *(?!(?:\\}|return))\\S+)"
+        message: "There should be an empty line after super"
+        severity: warning
+
+    new_line_between_import:
+        name: "New line between import"
+        regex: "import(.*?)\n\n+import"
+        message: "No new line between import"
+        severity: warning

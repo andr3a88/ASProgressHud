@@ -8,5 +8,4 @@ end
 target 'ASProgressHud_Tests' do
   pod 'ASProgressHud', :path => '../'
 
-  
 end

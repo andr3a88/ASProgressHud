@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+### [1.0.4](https://github.com/andr3a88/ASProgressHud/tree/1.0.4)
+
+Support to Swift 4
+
 ### [1.0.3](https://github.com/andr3a88/ASProgressHud/tree/1.0.3)
 
 Fix issue on animation duration.
