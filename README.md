@@ -6,6 +6,7 @@
 [![Apps](https://img.shields.io/cocoapods/at/ASProgressHud.svg?style=flat)](http://cocoapods.org/pods/ASProgressHud)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=58c125ce8fe03c010009b1a5&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/56f4f461ae27cb01000b366d/build/latest?branch=master)
+[![codebeat badge](https://codebeat.co/badges/ac582740-1971-481c-a11d-3c62f6f8e618)](https://codebeat.co/projects/github-com-andr3a88-asprogresshud-master)
 
 ## Requirements
 
