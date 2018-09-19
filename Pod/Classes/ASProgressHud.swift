@@ -114,19 +114,19 @@ open class ASProgressHud: UIView {
         self.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         self.isOpaque = false
         self.alpha = 0.0
-        self.contentMode = UIViewContentMode.center
+        self.contentMode = UIView.ContentMode.center
         self.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
         
-        //Configure HudImageView
-        self.hudImageView = UIImageView(frame:CGRect(x: 0, y: 0, width: hudProperty.size, height: hudProperty.size))
+        // Configure HudImageView
+        self.hudImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: hudProperty.size, height: hudProperty.size))
         self.hudImageView?.center = CGPoint(x: frame.size.width/2, y: frame.size.height/2)
-        self.hudImageView?.contentMode = UIViewContentMode.scaleAspectFit
+        self.hudImageView?.contentMode = UIView.ContentMode.scaleAspectFit
         self.hudImageView?.backgroundColor = hudProperty.backgroundColor
         
-        //Load images
+        // Load images
         let imagesArray = self.loadImages(hudProperty)
         
-        //Animation configuration
+        // Animation configuration
         self.hudImageView?.animationImages = imagesArray
         self.hudImageView?.animationDuration = hudProperty.animationDuration
         self.hudImageView?.animationRepeatCount = 0
@@ -138,7 +138,7 @@ open class ASProgressHud: UIView {
         switch type {
         case .default:
             
-            //Add a black shadow with radius offset and opacity
+            // Add a black shadow with radius offset and opacity
             self.hudImageView?.layer.shadowColor = UIColor.black.cgColor
             self.hudImageView?.layer.shadowOpacity = 0.4
             self.hudImageView?.layer.shadowRadius = 3.0
@@ -154,7 +154,7 @@ open class ASProgressHud: UIView {
     
     fileprivate func loadImages(_ property: HudProperty) -> [UIImage] {
 
-        //Load images
+        // Load images
         var imageArray: [UIImage] = []
         
         for c in 0 ..< property.frameNumber {
@@ -201,7 +201,7 @@ open class ASProgressHud: UIView {
     :see: animationType
     */
     @discardableResult
-    open static func showHUDAddedTo(_ view: UIView, animated: Bool, type: HudType) -> ASProgressHud {
+    public static func showHUDAddedTo(_ view: UIView, animated: Bool, type: HudType) -> ASProgressHud {
         let hud = ASProgressHud(frame: view.bounds, type: type)
         view.addSubview(hud)
         hud.show(animated)
@@ -223,7 +223,7 @@ open class ASProgressHud: UIView {
      :see: animationType
      */
     @discardableResult
-    open static func showCustomHUDAddedTo(_ view: UIView, animated: Bool, property: HudProperty) -> ASProgressHud {
+    public static func showCustomHUDAddedTo(_ view: UIView, animated: Bool, property: HudProperty) -> ASProgressHud {
         var hudProperty = property
         hudProperty.mainBundle = true
         let hud = ASProgressHud(frame: view.bounds, hudProperty: hudProperty)
@@ -246,7 +246,7 @@ open class ASProgressHud: UIView {
      :see: animationType
      */
     @discardableResult
-    open static func hideHUDForView(_ view: UIView, animated: Bool) -> Bool {
+    public static func hideHUDForView(_ view: UIView, animated: Bool) -> Bool {
         let hud = self.HUDForView(view)
         
         if hud != nil {
@@ -268,7 +268,7 @@ open class ASProgressHud: UIView {
      :see: hideHUDForView:animated:
      :see: animationType
      */
-    open static func hideAllHUDsForView(_ view: UIView, animated: Bool) -> NSInteger {
+    public static func hideAllHUDsForView(_ view: UIView, animated: Bool) -> NSInteger {
         
         let huds = ASProgressHud.allHUDsForView(view)
         for hud in huds {
