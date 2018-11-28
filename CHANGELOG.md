@@ -1,7 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-### [1.0.4](https://github.com/andr3a88/ASProgressHud/tree/1.0.5)
+### [1.0.6](https://github.com/andr3a88/ASProgressHud/tree/1.0.6)
+
+Support to Swift 4.2
+
+### [1.0.5](https://github.com/andr3a88/ASProgressHud/tree/1.0.5)
 
 Support to Swift 4.2
 
