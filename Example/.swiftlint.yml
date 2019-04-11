@@ -1,43 +1,60 @@
-disabled_rules:
-- conditional_binding_cascade
-- force_cast
-- legacy_constant
-- legacy_constructor
-- line_length
-- nesting
-- todo
-- trailing_whitespace
-- type_name
-- variable_name
-- cyclomatic_complexity
-- unused_closure_parameter
-- force_https
+disabled_rules: # rule identifiers to exclude from running
+    - force_cast # should be enabled
+    - legacy_constant
+    - legacy_constructor
+    - line_length
+    - nesting
+    - trailing_whitespace
+    - identifier_name
+    - cyclomatic_complexity
+    - unused_closure_parameter
+    - no_grouping_extension
 
-opt_in_rules: # some rules are only opt-in
-#- empty_count
-#- missing_docs
-# Find all the available rules by running:
-# swiftlint rules
-
+opt_in_rules:
+    - array_init
+    - closure_spacing
+    - contains_over_first_not_nil
+    - explicit_init
+    - extension_access_modifier
+    - fatal_error_message
+    - first_where
+    - implicit_return
+    - joined_default_parameter
+    - let_var_whitespace
+    - literal_expression_end_indentation
+    - no_grouping_extension
+    - operator_usage_whitespace
+    - overridden_super_call
+    - prohibited_super_call
+    - quick_discouraged_call
+    - sorted_imports
+    - unused_private_declaration
+    - toggle_bool
+    - vertical_parameter_alignment_on_call
+    - empty_count
+    
 included: # paths to include during linting. `--path` is ignored if present.
-- ../Pod/Classes
+    - ../Pod/Classes
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
-- Carthage
+    - Carthage
 
+
+# These properties are marked as error by default.
 force_try: warning
+shorthand_operator: warning
 
 file_length:
-    warning: 500
-    error: 700
+    warning: 700
+    error: 900
 
 function_body_length:
-    warning: 150
-    error: 200
+    warning: 50
+    error: 100
 
 type_body_length:
-    warning: 300
-    error: 350
+    warning: 600
+    error: 700
 
 function_parameter_count:
     warning: 10
@@ -51,13 +68,24 @@ large_tuple:
     warning: 4
     error: 5
 
+type_name:
+    min_length: 3 # only warning
+    max_length: # warning and error
+        warning: 45
+        error: 50
+    excluded:
+        - R
+        - D
+
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube)
+
 custom_rules:
     comments_space: # From https://github.com/brandenr/swiftlintconfig
         name: "Space After Comment"
         regex: "(^ *//\\w+)"
         message: "There should be a space after //"
         severity: warning
-
+        
     double_space: # From https://github.com/IBM-Swift/Package-Builder
         include: "*.swift"
         name: "Double space"
@@ -65,22 +93,27 @@ custom_rules:
         message: "Double space between keywords"
         match_kinds: keyword
         severity: warning
-
+    
     mark_newline:
         include: "*.swift"
         name: "MARK new line"
         regex: "(^ *\\/\\/ MARK:\ [ a-zA-Z0-9=?.\\(\\)\\{\\}:,><!-]*\n *(?!(?:\\}|return))\\S+)"
         message: "// MARK: should have new line after"
         severity: warning
-
+    
     empty_line_after_super:
         name: "Empty Line After Super"
         regex: "(^ *super\\.[ a-zA-Z0-9=?.\\(\\)\\{\\}:,><!]*\n *(?!(?:\\}|return))\\S+)"
         message: "There should be an empty line after super"
         severity: warning
-
+    
     new_line_between_import:
         name: "New line between import"
         regex: "import(.*?)\n\n+import"
         message: "No new line between import"
         severity: warning
+    print:
+        name: "Debug print"
+        message: "Remove print output."
+        severity: warning
+        regex: "\\sprint[ ]?\\((.*\\))" # Detect this string print("

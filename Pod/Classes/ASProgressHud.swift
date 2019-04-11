@@ -119,7 +119,7 @@ open class ASProgressHud: UIView {
         
         // Configure HudImageView
         self.hudImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: hudProperty.size, height: hudProperty.size))
-        self.hudImageView?.center = CGPoint(x: frame.size.width/2, y: frame.size.height/2)
+        self.hudImageView?.center = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         self.hudImageView?.contentMode = UIView.ContentMode.scaleAspectFit
         self.hudImageView?.backgroundColor = hudProperty.backgroundColor
         
@@ -280,7 +280,7 @@ open class ASProgressHud: UIView {
     
     fileprivate static func HUDForView(_ view: UIView) -> ASProgressHud? {
         
-        let subviewsEnum  = view.subviews as NSArray
+        let subviewsEnum = view.subviews as NSArray
         let array = subviewsEnum.reverseObjectEnumerator()
         
         for subView in array {
