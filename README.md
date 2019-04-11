@@ -10,9 +10,9 @@
 
 ## Requirements
 
-* Swift 4.2
-* XCode 10.0
-* iOS >= 8
+* Swift 5
+* XCode 10.2
+* iOS >= 9
 
 ## Installation
 
