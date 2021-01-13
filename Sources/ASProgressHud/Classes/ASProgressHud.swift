@@ -6,6 +6,8 @@
 //
 //
 
+import UIKit
+
 /**
 *  Specify the property for the Hud.
 */
