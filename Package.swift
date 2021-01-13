@@ -15,7 +15,7 @@ let package = Package(
         .target(
             name: "ASProgressHud",
             dependencies: [],
-            resources: [.process("Assets")])
+            resources: [.process("Assets")]),
         .testTarget(
             name: "ASProgressHudTests",
             dependencies: ["ASProgressHud"]),
