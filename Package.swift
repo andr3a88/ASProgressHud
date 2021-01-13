@@ -14,8 +14,8 @@ let package = Package(
     targets: [
         .target(
             name: "ASProgressHud",
-            resources: [.process("Assets")],
-            dependencies: []),
+            dependencies: [],
+            resources: [.process("Assets")])
         .testTarget(
             name: "ASProgressHudTests",
             dependencies: ["ASProgressHud"]),
