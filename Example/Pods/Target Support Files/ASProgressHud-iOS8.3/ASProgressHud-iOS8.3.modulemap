@@ -1,5 +1,5 @@
 framework module ASProgressHud {
-  umbrella header "ASProgressHud-umbrella.h"
+  umbrella header "ASProgressHud-iOS8.3-umbrella.h"
 
   export *
   module * { export * }

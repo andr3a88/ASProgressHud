@@ -1,5 +1,5 @@
 PODS:
-  - ASProgressHud (0.0.1)
+  - ASProgressHud (1.0.7)
 
 DEPENDENCIES:
   - ASProgressHud (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ASProgressHud: d5c9bda3d626bd3d0d2ffe5fc0883e9fb750d7a7
+  ASProgressHud: 11fe2fbac1219d6a9581b15f69325df091dc663e
 
-PODFILE CHECKSUM: fee9b2aa9a5c3eee854b9e622e3dedb8f966c0d0
+PODFILE CHECKSUM: 940780d29ab8d29a8d66759732e5b69e71b437a3
 
-COCOAPODS: 1.0.0.beta.3
+COCOAPODS: 1.10.1
