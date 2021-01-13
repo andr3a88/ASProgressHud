@@ -28,13 +28,12 @@ opt_in_rules:
     - prohibited_super_call
     - quick_discouraged_call
     - sorted_imports
-    - unused_private_declaration
     - toggle_bool
     - vertical_parameter_alignment_on_call
     - empty_count
     
 included: # paths to include during linting. `--path` is ignored if present.
-    - ../Pod/Classes
+    - ../Sources/ASProgressHud
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
     - Carthage
